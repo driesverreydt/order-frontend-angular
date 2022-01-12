@@ -1,7 +1,17 @@
 <section>
-  <h3 class="section-title">{{title}}</h3>
+  <header>
+    <h2>{{title}}</h2>
+    <div class="form-group">
+      <input id="name"
+             name="name"
+             class="form-control"
+             placeholder="Filter by name..."
+             [(ngModel)]="searchTextByName">
+    </div>
+  </header>
+
   <ul class="card-list">
-    <li class="card" *ngFor="let item of items">
+    <li class="card" *ngFor="let item of items | nameFilter: searchTextByName">
       <div class="card-title">{{item.name}}</div>
       <img class="card-image" src="assets/images/item-image.png" alt="item image">
       <div class="card-footer">

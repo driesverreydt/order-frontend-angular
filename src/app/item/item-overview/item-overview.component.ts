@@ -11,6 +11,7 @@ export class ItemOverviewComponent implements OnInit {
 
   private _title!: string;
   items: Item[] = [];
+  searchTextByName!: string;
 
   constructor(
     private itemService: ItemService
