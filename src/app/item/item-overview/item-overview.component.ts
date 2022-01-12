@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ItemService} from "../service/item.service";
+import {Item} from "../Item";
 
 @Component({
   selector: 'app-item-overview',
@@ -8,15 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class ItemOverviewComponent implements OnInit {
 
   private _title!: string;
+  items: Item[] = [];
 
-  constructor() { }
+  constructor(
+    private itemService: ItemService
+  ) { }
 
   ngOnInit(): void {
     this._title = 'Items';
+    this.getItems();
   }
 
   get title(): string {
     return this._title;
   }
 
+  getItems(): void {
+    this.itemService.getItems()
+      .subscribe(items => this.items = items);
+  }
 }

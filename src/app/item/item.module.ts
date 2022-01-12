@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ItemOverviewComponent } from './item-overview/item-overview.component';
+import {CommonModule} from "@angular/common";
 
 
 
