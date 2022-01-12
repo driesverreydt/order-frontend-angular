@@ -9,19 +9,20 @@
              [(ngModel)]="searchTextByName">
     </div>
   </header>
-
-  <ul class="card-list">
-    <li class="card" *ngFor="let item of items | nameFilter: searchTextByName">
-      <div class="card-title">{{item.name}}</div>
-      <img class="card-image" src="assets/images/item-image.png" alt="item image">
-      <div class="card-footer">
-        <div>Price: &euro; {{item.price}}</div>
-        <div class="stock">
-          <span>{{item.stockUrgency | slice:6 }}</span>
-          <img class="icon" src="assets/images/warning-icon.png" alt="warning icon">
+  <div class="section-body">
+    <ul class="card-list">
+      <li class="card" *ngFor="let item of items | nameFilter: searchTextByName">
+        <div class="card-title">{{item.name}}</div>
+        <img class="card-image" src="assets/images/item-image.png" alt="item image">
+        <div class="card-footer">
+          <div>Price: &euro; {{item.price}}</div>
+          <div class="stock">
+            <span>{{item.stockUrgency | slice:6 }}</span>
+            <img class="icon" src="assets/images/warning-icon.png" alt="warning icon">
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </section>
 

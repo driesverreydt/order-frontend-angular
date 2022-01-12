@@ -82,6 +82,11 @@ nav > a:hover {
   border-bottom-width: 1px;
 }
 
+.section-body {
+  padding: 20px;
+  margin: 20px;
+}
+
 form {
   display: flex;
   flex-direction: column;
