@@ -8,17 +8,18 @@ import {HttpClientModule} from "@angular/common/http";
 import {ItemModule} from "./item/item.module";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    LayoutModule,
-    ItemModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        LayoutModule,
+        ItemModule
+    ],
+    providers: [],
+    exports: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

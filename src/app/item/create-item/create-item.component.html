@@ -16,7 +16,8 @@
       <div class="row">
         <div class="col-1">
           <label class="form-label" for="description">Description</label>
-          <input class="form-control" id="description" type="text" formControlName="description"/>
+          <textarea class="form-control" id="description" type="text" formControlName="description"></textarea>
+          <app-length-counter>/</app-length-counter>
           <div *ngIf="formErrors.description" class="alert alert-danger">
             {{ formErrors.description }}
           </div>
@@ -24,17 +25,17 @@
       </div>
       <div class="row">
         <div class="col-4">
-          <label class="form-label" for="street">Price</label>
+          <label class="form-label" for="price">Price</label>
           <div>
-            <input class="form-control" id="street" type="text" formControlName="price"/>
+            <input class="form-control" id="price" type="text" formControlName="price"/>
           </div>
           <div *ngIf="formErrors.price" class="alert alert-danger">
             {{ formErrors.price }}
           </div>
         </div>
         <div class="col-4">
-          <label class="form-label" for="number">Amount of Stock</label>
-          <input class="form-control" id="number" type="text" formControlName="amountOfStock"/>
+          <label class="form-label" for="amountOfStock">Amount of Stock</label>
+          <input class="form-control" id="amountOfStock" type="text" formControlName="amountOfStock"/>
           <div *ngIf="formErrors.amountOfStock" class="alert alert-danger">
             {{ formErrors.amountOfStock }}
           </div>

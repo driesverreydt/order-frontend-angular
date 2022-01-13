@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ItemService} from "../service/item.service";
 import {FormBuilder, FormControl, FormGroup, Validator, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {CounterService} from "../../util/service/counter.service";
+import {startWith} from "rxjs";
 
 @Component({
   selector: 'app-create-item',
@@ -17,7 +19,8 @@ export class CreateItemComponent implements OnInit {
   constructor(
     private itemService: ItemService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private counterService: CounterService
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +46,9 @@ export class CreateItemComponent implements OnInit {
       .subscribe(data => this.onValueChanged(true,data));
 
     this.onValueChanged(true); // (re)set validation messages now
+
+    this.itemForm.get('description')?.valueChanges.
+      subscribe(() => this.onDescriptionChanged());
   }
 
   onValueChanged(dirtyCheck: boolean, data?: any, ) {
@@ -61,6 +67,13 @@ export class CreateItemComponent implements OnInit {
         }
       }
     }
+  }
+
+  onDescriptionChanged() {
+    // @ts-ignore
+    const characterUsedCount = document.getElementById('description').value.length;
+    console.log('CI Component: ' + characterUsedCount)
+    this.counterService.changeCharacterUsedCount(characterUsedCount);
   }
 
   get title(): string {

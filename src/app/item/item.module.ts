@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NameFilterPipe } from './pipe/name-filter.pipe';
 import { CreateItemComponent } from './create-item/create-item.component';
 import {RouterModule} from "@angular/router";
+import {UtilModule} from "../util/util.module";
 
 
 
@@ -18,7 +19,8 @@ import {RouterModule} from "@angular/router";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    UtilModule
   ]
 })
 export class ItemModule { }
