@@ -3,17 +3,23 @@
     <h2>{{title}}</h2>
   </header>
   <div class="section-body">
-    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="itemForm" *ngIf="itemForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-1">
           <label class="form-label" for="name">Name</label>
           <input class="form-control" id="name" type="text" formControlName="name"/>
+          <div *ngIf="formErrors.name" class="alert alert-danger">
+            {{ formErrors.name }}
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-1">
           <label class="form-label" for="description">Description</label>
           <input class="form-control" id="description" type="text" formControlName="description"/>
+          <div *ngIf="formErrors.description" class="alert alert-danger">
+            {{ formErrors.description }}
+          </div>
         </div>
       </div>
       <div class="row">
@@ -22,10 +28,16 @@
           <div>
             <input class="form-control" id="street" type="text" formControlName="price"/>
           </div>
+          <div *ngIf="formErrors.price" class="alert alert-danger">
+            {{ formErrors.price }}
+          </div>
         </div>
         <div class="col-4">
           <label class="form-label" for="number">Amount of Stock</label>
           <input class="form-control" id="number" type="text" formControlName="amountOfStock"/>
+          <div *ngIf="formErrors.amountOfStock" class="alert alert-danger">
+            {{ formErrors.amountOfStock }}
+          </div>
         </div>
       </div>
       <div class="row">
